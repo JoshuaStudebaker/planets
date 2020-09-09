@@ -3,7 +3,7 @@ import { BadRequest } from "../utils/Errors";
 
 class StarsService {
   async find(query = {}) {
-    let stars = await dbContext.Stars.find(query);
+    let stars = await dbContext.Stars.find(query).populate("galaxy", "name");
     return stars;
   }
   async findById(id) {
